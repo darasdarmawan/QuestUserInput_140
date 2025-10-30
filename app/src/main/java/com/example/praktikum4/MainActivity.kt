@@ -17,6 +17,14 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-
+        setContent {
+            Praktikum4Theme {
+                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                    FormDataDiri(
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
+            }
+        }
     }
 }
