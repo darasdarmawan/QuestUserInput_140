@@ -143,5 +143,14 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
             thickness = dimensionResource(R.dimen.divider_tipis),
             color = Color.Gray
         )
+        if (isSubmitted) {
+            ElevatedCard(
+                elevation = CardDefaults.cardElevation(defaultElevation = 8.dp),
+                colors = CardDefaults.cardColors(containerColor = Color(0xFF7B1FA2)),
+                modifier = Modifier
+                    .height(120.dp)
+                    .width(300.dp)
+            )
+        }
     }
 }
