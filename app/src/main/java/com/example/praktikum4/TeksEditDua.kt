@@ -89,6 +89,20 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                     Text(item)
                 }
             }
+            Text("Status Perkawinan", style = MaterialTheme.typography.labelLarge)
+            statusList.forEach { item ->
+                Row(
+                    verticalAlignment = Alignment.CenterVertically,
+                    modifier = Modifier
+                        .selectable(
+                            selected = status == item,
+                            onClick = { status = item }
+                        )
+                        .padding(vertical = 2.dp)
+                ) {
+
+                }
+            }
         }
     }
 }
