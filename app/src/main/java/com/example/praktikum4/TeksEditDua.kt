@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.safeDrawingPadding
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -60,6 +61,16 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                 .fillMaxWidth(0.9f),
             elevation = CardDefaults.cardElevation(8.dp),
             colors = CardDefaults.cardColors(containerColor = Color.White)
-        ) {}
+        ) {
+            Text("Nama Lengkap", style = MaterialTheme.typography.labelLarge)
+            OutlinedTextField(
+                value = nama,
+                onValueChange = { nama = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                label = { Text("Isian nama lengkap") }
+            )
+        }
     }
 }
