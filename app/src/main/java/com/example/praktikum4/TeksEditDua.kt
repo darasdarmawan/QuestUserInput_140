@@ -104,6 +104,15 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                     Text(item)
                 }
             }
+            Text("Alamat", style = MaterialTheme.typography.labelLarge)
+            OutlinedTextField(
+                value = alamat,
+                onValueChange = { alamat = it },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(vertical = 8.dp),
+                label = { Text("Alamat") }
+            )
         }
     }
 }
