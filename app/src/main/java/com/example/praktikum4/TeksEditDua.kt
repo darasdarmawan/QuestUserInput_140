@@ -8,6 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -52,7 +54,12 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                 style = MaterialTheme.typography.titleLarge
             )
         }
+        ElevatedCard(
+            modifier = Modifier
+                .padding(16.dp)
+                .fillMaxWidth(0.9f),
+            elevation = CardDefaults.cardElevation(8.dp),
+            colors = CardDefaults.cardColors(containerColor = Color.White)
+        ) {}
     }
-
-
 }
