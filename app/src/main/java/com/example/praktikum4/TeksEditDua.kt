@@ -2,8 +2,14 @@ package com.example.praktikum4
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -12,6 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun FormulirPendaftaran(modifier: Modifier = Modifier) {
@@ -31,7 +38,20 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-
+        Box (
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(Color(0xFF7B1FA2))
+                .safeDrawingPadding()
+                .padding(vertical = 16.dp, horizontal = 20.dp),
+            contentAlignment = Alignment.CenterStart
+        ) {
+            Text(
+                text = "Formulir Pendaftaran",
+                color = Color.White,
+                style = MaterialTheme.typography.titleLarge
+            )
+        }
     }
 
 
