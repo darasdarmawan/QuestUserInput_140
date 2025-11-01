@@ -7,11 +7,15 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawingPadding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.selection.selectable
+import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ElevatedCard
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.RadioButton
@@ -24,6 +28,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -65,54 +70,59 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
             elevation = CardDefaults.cardElevation(8.dp),
             colors = CardDefaults.cardColors(containerColor = Color.White)
         ) {
-            Text("Nama Lengkap", style = MaterialTheme.typography.labelLarge)
-            OutlinedTextField(
-                value = nama,
-                onValueChange = { nama = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                label = { Text("Isian nama lengkap") }
-            )
-            Text("Jenis Kelamin", style = MaterialTheme.typography.labelLarge)
-            genderList.forEach { item ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
+            Column (
+                modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
+                verticalArrangement = Arrangement.Top
+            ) {
+                Text("Nama Lengkap", style = MaterialTheme.typography.labelLarge)
+                OutlinedTextField(
+                    value = nama,
+                    onValueChange = { nama = it },
                     modifier = Modifier
-                        .selectable(
-                            selected = jenisKelamin == item,
-                            onClick = { jenisKelamin = item }
-                        )
-                        .padding(vertical = 2.dp)
-                ) {
-                    RadioButton(selected = jenisKelamin == item, onClick = { jenisKelamin = item })
-                    Text(item)
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    label = { Text("Isian nama lengkap") }
+                )
+                Text("Jenis Kelamin", style = MaterialTheme.typography.labelLarge)
+                genderList.forEach { item ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .selectable(
+                                selected = jenisKelamin == item,
+                                onClick = { jenisKelamin = item}
+                            )
+                            .padding(vertical = 2.dp)
+                    ) {
+                        RadioButton(selected = jenisKelamin == item, onClick = { jenisKelamin = item })
+                        Text(item)
+                    }
                 }
-            }
-            Text("Status Perkawinan", style = MaterialTheme.typography.labelLarge)
-            statusList.forEach { item ->
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
+                Text("Status Perkawinan", style = MaterialTheme.typography.labelLarge)
+                statusList.forEach { item ->
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier
+                            .selectable(
+                                selected = status == item,
+                                onClick = { status = item }
+                            )
+                            .padding(vertical = 2.dp)
+                    ) {
+                        RadioButton(selected = status == item, onClick = { status = item})
+                        Text(item)
+                    }
+                }
+                Text("Alamat", style = MaterialTheme.typography.labelLarge)
+                OutlinedTextField(
+                    value = alamat,
+                    onValueChange = { alamat = it },
                     modifier = Modifier
-                        .selectable(
-                            selected = status == item,
-                            onClick = { status = item }
-                        )
-                        .padding(vertical = 2.dp)
-                ) {
-                    RadioButton(selected = status == item, onClick = { status = item})
-                    Text(item)
-                }
+                        .fillMaxWidth()
+                        .padding(vertical = 8.dp),
+                    label = { Text("Alamat") }
+                )
             }
-            Text("Alamat", style = MaterialTheme.typography.labelLarge)
-            OutlinedTextField(
-                value = alamat,
-                onValueChange = { alamat = it },
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 8.dp),
-                label = { Text("Alamat") }
-            )
         }
     }
 }
