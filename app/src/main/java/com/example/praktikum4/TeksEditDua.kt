@@ -100,7 +100,8 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                         )
                         .padding(vertical = 2.dp)
                 ) {
-
+                    RadioButton(selected = status == item, onClick = { status = item})
+                    Text(item)
                 }
             }
         }
