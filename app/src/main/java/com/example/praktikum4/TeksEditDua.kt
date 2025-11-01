@@ -150,7 +150,17 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .height(120.dp)
                     .width(300.dp)
-            )
+            ) {
+                Column(
+                    modifier = Modifier.padding(12.dp),
+                    verticalArrangement = Arrangement.Center
+                ) {
+                    Text("Nama:" + nama, color = Color.White)
+                    Text("Jenis Kelamin:" + jenisKelamin, color = Color.White)
+                    Text("Status:" + status, color = Color.White)
+                    Text("Alamat:" + alamat, color = Color.White)
+                }
+            }
         }
     }
 }
