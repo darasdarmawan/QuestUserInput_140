@@ -122,7 +122,17 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                         .padding(vertical = 8.dp),
                     label = { Text("Alamat") }
                 )
+                Button(
+                    onClick = { isSubmitted = true },
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(top = 8.dp),
+                    enabled = nama.isNotEmpty() && alamat.isNotEmpty()
+                ) {
+                    Text("Submit")
+                }
             }
         }
+
     }
 }
