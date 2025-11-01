@@ -133,6 +133,15 @@ fun FormulirPendaftaran(modifier: Modifier = Modifier) {
                 }
             }
         }
-
+        HorizontalDivider(
+            modifier = Modifier
+                .padding(
+                    bottom = dimensionResource(R.dimen.padding_medium),
+                    top = dimensionResource(R.dimen.padding_small)
+                )
+                .fillMaxWidth(),
+            thickness = dimensionResource(R.dimen.divider_tipis),
+            color = Color.Gray
+        )
     }
 }
